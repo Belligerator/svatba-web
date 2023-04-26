@@ -1,0 +1,20 @@
+<div class="content">
+    <div class="text-center">
+        <div class="divider main-title">
+            Ubytování
+        </div>
+        <div class="main-center-info-small">
+            <div>Bučický mlýn</div>
+            <div>Velenice</div>
+        </div>
+        <div class="main-center-info">
+            <google-map [options]="{'streetViewControl': false}"
+                        [center]="{lat: 50.27079021011324, lng: 15.198140532669496}"
+                        [zoom]="11">
+                <map-marker *ngFor="let marker of markers"
+                        [position]="marker.position"
+                        [title]="marker.title"></map-marker>
+            </google-map>
+        </div>
+    </div>
+</div>

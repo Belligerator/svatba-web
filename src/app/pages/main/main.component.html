@@ -1,0 +1,78 @@
+<div class="content">
+    <div class="row main-row-img-text">
+        <div class="col-4 animation-observable animate-right">
+            <div class="img-shadow">
+                <img src="assets/images/my03.jpg" loading="lazy">
+            </div>
+        </div>
+        <div class="col-8 animation-observable animate-left text-center">
+            <div class="divider main-title">
+                <span>Obřad</span>
+            </div>
+            <div class="">
+                <div>20 | 05 | 2023</div>
+                <div>ve 14:30</div>
+                <div>v kostele sv. Havla v Rožďalovicích</div>
+                <div class="text-small">Podolí 18, 289 34 Rožďalovice</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider-space"></div>
+
+    <div class="row main-row-img-text">
+        <div class="col-8 animation-observable animate-right text-center">
+            <div class="divider main-title">
+                Hostina
+            </div>
+            <div class="">
+                <div>Bučický mlýn</div>
+                <div class="text-small">Husova 14, 289 34 Rožďalovice</div>
+            </div>
+        </div>
+        <div class="col-4 animation-observable animate-left">
+            <div class="img-shadow">
+                <img src="assets/images/my01.jpg" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <div class="divider-space"></div>
+
+    <div class="row main-row-img-text">
+        <div class="col-4 animation-observable animate-right">
+            <div class="img-shadow">
+                <img src="assets/images/my02.jpg" loading="lazy">
+            </div>
+        </div>
+        <div class="col-8 animation-observable animate-left text-center">
+            <div class="divider main-title">
+                <span>Dary</span>
+            </div>
+            <div class="">
+                <div>Pokud byste nás chtěli poctít svatebním darem,<br>
+                    můžete nás obdarovat drobným finančním příspěvkem<br>
+                    na společné bydlení.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider-space"></div>
+
+    <google-map [options]="{'streetViewControl': false}"
+                [center]="{lat: 50.310394944665404, lng: 15.178054152965865}"
+                [zoom]="14">
+        <map-marker *ngFor="let item of markers"
+                    #marker="mapMarker"
+                    [position]="item.position"
+                    [clickable]="true"
+                    (mapClick)="klik(marker, item)"
+                    [title]="item.title">
+        </map-marker>
+        <map-info-window *ngIf="selectedMarker">
+            <div><strong>{{ selectedMarker.title }}</strong></div>
+            <div>{{ selectedMarker.address }}</div>
+            <div><a [href]="selectedMarker.link" target="_blank">Otevřít v Google Maps</a></div>
+        </map-info-window>
+    </google-map>
+</div>

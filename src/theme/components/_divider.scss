@@ -1,0 +1,42 @@
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: $text-body;
+  font-size: small;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 60px;
+
+  span {
+    align-self: flex-end;
+  }
+
+  &.divider-small-margin {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+/* To show the lines on right 
+and left sides of the text */
+.divider::after,
+.divider::before {
+  content: "";
+  flex: 1;
+  height: 60px;
+  background-image: url("../../assets/images/divider-flower.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
+}
+
+/* Space on left and right sides of text */
+.divider:not(:empty)::before {
+  margin-right: 0.5em;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 0.5em;
+  transform: rotateY(180deg);
+}
