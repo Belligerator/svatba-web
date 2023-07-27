@@ -13,7 +13,7 @@
                 <div>20 | 05 | 2023</div>
                 <div>ve 14:30</div>
                 <div>v kostele sv. Havla v Rožďalovicích</div>
-                <div class="text-small">Podolí 18, 289 34 Rožďalovice</div>
+                <div class="text-small">Husova 14, 289 34 Rožďalovice</div>
             </div>
         </div>
     </div>
@@ -25,9 +25,9 @@
             <div class="divider main-title">
                 Hostina
             </div>
-            <div class="">
+            <div>
                 <div>Bučický mlýn</div>
-                <div class="text-small">Husova 14, 289 34 Rožďalovice</div>
+                <div class="text-small">Podolí 18, 289 34 Rožďalovice</div>
             </div>
         </div>
         <div class="col-4 animation-observable animate-left">
@@ -66,7 +66,7 @@
                     #marker="mapMarker"
                     [position]="item.position"
                     [clickable]="true"
-                    (mapClick)="klik(marker, item)"
+                    (mapClick)="onMarkerClicked(marker, item)"
                     [title]="item.title">
         </map-marker>
         <map-info-window *ngIf="selectedMarker">

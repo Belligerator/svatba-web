@@ -15,13 +15,13 @@ export class MainComponent implements OnInit {
         {
             position: { lat: 50.316586328518056, lng: 15.18978066609853 },
             title: 'Hostina - Bučiský mlýn',
-            address: 'Bučiský mlýn, Podolí 18, 289 34 Roďalovice',
+            address: 'Bučiský mlýn, Podolí 18, 289 34 Rožďalovice',
             link: 'https://www.google.com/maps?ll=50.31264,15.18329&z=14&t=m&hl=en-US&gl=US&mapclient=apiv3&cid=6523866188509584393'
         },
         {
             position: { lat: 50.30714637820163, lng: 15.170708334406845 },
             title: 'Obřad - Kostel sv. Havla',
-            address: 'Kostel sv. Havla, Husova 14, 289 34 Roďalovice',
+            address: 'Kostel sv. Havla, Husova 14, 289 34 Rožďalovice',
             link: 'https://www.google.com/maps?ll=50.307553,15.171842&z=17&t=m&hl=en-US&gl=US&mapclient=apiv3&cid=6932525242374016154'
         }
     ];
@@ -61,9 +61,12 @@ export class MainComponent implements OnInit {
         }
     }
 
-    public klik(anchorPoint: any, marker: any): void {
+    public onMarkerClicked(anchorPoint: any, marker: any): void {
         console.log(marker);
         this.selectedMarker = marker;
-        this.infoWindow?.open(anchorPoint);
+        // Poprve, kdyz se na amrker klikne, tak se nic nestane, musi se kliknout znova, nebo dat timeout.
+        setTimeout(() => {
+            this.infoWindow?.open(anchorPoint);
+        }, 10);
     }
 }

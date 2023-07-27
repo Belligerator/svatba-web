@@ -51,7 +51,7 @@ html, body {
   .header-title {
     font-size: $text-medium;
     font-weight: bold;
-    font-family: 'nickainley', 'MarkScript', serif;
+    //font-family: 'nickainley', 'MarkScript', serif;
     cursor: pointer;
 
     img {
@@ -72,7 +72,6 @@ html, body {
 }
 
 .main-center-info, .main-center-info-small {
-  font-weight: bold;
   line-height: 50px;
   font-size: $text-small;
   margin-left: auto;
@@ -189,4 +188,8 @@ html, body {
 .divider-space {
   width: 100%;
   height: 50px;
+}
+
+map-info-window {
+  text-align: center;
 }

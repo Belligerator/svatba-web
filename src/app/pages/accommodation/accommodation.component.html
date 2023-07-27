@@ -4,16 +4,33 @@
             Ubytování
         </div>
         <div class="main-center-info-small">
-            <div>Bučický mlýn</div>
-            <div>Velenice</div>
+            <div class="animation-observable animate-right">
+                <div><strong>Bučický mlýn</strong></div>
+                <div class="text-small">Podolí 18, 289 34 Rožďalovice</div>
+                <div class="text-small">Check-in: 20.5. 12:00</div>
+                <div class="text-small">Check-out: 21.5. 12:00</div>
+            </div>
+            <br>
+            <div class="animation-observable animate-left">
+                <div><strong>Velenice</strong></div>
+                <div class="text-small">Velenice 36, 289 01 Velenice</div>
+            </div>
         </div>
         <div class="main-center-info">
             <google-map [options]="{'streetViewControl': false}"
                         [center]="{lat: 50.27079021011324, lng: 15.198140532669496}"
                         [zoom]="11">
-                <map-marker *ngFor="let marker of markers"
-                        [position]="marker.position"
-                        [title]="marker.title"></map-marker>
+                <map-marker *ngFor="let item of markers"
+                            #marker="mapMarker"
+                            [clickable]="true"
+                            [position]="item.position"
+                            (mapClick)="onMarkerClicked(marker, item)"
+                            [title]="item.title"></map-marker>
+                <map-info-window *ngIf="selectedMarker">
+                    <div><strong>{{ selectedMarker.title }}</strong></div>
+                    <div>{{ selectedMarker.address }}</div>
+                    <div><a [href]="selectedMarker.link" target="_blank">Otevřít v Google Maps</a></div>
+                </map-info-window>
             </google-map>
         </div>
     </div>
